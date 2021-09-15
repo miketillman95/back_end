@@ -1,4 +1,6 @@
 // Update with your config settings.
+
+// check this once deployed to heroku 
 console.log(">>>>>>>>>>>>>>> process.env.DATABASE_URL: ", process.env.DATABASE_URL);
 const sharedConfig = {
   client: 'pg',
