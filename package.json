@@ -12,7 +12,11 @@
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.11",
+    "pg": "^8.7.1",
+    "pg-connection-string": "^2.5.0",
+    "postgres": "^1.0.2",
     "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
   },
   "devDependencies": {
@@ -23,6 +27,7 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent"
   },
   "keywords": [],
