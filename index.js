@@ -1,4 +1,4 @@
-const server = require('./server')
+const server = require('../back_end/api/server')
 
 const PORT = process.env.PORT || 3300
 
