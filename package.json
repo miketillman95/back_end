@@ -1,0 +1,25 @@
+{
+  "name": "family-recipe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "supertest": "^6.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
