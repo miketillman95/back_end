@@ -4,9 +4,12 @@ exports.seed = function(knex) {
   
       // Inserts seed entries
       return knex('users').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+        {user_id: 1, username: 'loki', password: 'password', email: 'loki@marvel.com'},
+        {user_id: 2, username: 'cyclops', password: 'password', email: 'cyclops@marvel.com'},
+        {user_id: 3, username: 'sylvie', password: 'password', email: 'sylvie@marvel.com'},
+        {user_id: 4, username: 'jeangray', password: 'password', email: 'jeangray@marvel.com'},
+        {user_id: 5, username: 'user', password: 'password', email: 'user@lambda.com'},
+        {user_id: 6, username: 'admin', password: 'password', email: 'admin@lambda.com'}
       ]);
     
 };
