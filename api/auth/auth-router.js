@@ -52,6 +52,22 @@ router.post('/login', checkAuthPayload, checkUsernameExists, (req, res, next) =>
     .catch(next)
 })
 
+// logout endpoint
+// router.post("/logout", async (req, res, next) => {
+// 	try {
+// 		req.session.destroy((err) => {
+// 			if (err){
+// 				next(err)
+// 			} else {
+// 				res.status(204).end()
+// 			}
+// 		})
+		
+// 	} catch (err) {
+// 		next(err)
+// 	}
+// })
+
 // make token
 function makeToken(user){
   //give payload as an object
