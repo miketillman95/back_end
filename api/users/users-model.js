@@ -13,11 +13,11 @@ function findBy(filter){
 		.where(filter)
 }
 
-function findById(id){
-	console.log("in the model findById", id)
+function findById(user_id){
+	console.log("in the model findById", user_id)
 	return db("users")
 		.select("*")
-		.where({ id })
+		.where({ user_id })
 		.first()
 }
 
