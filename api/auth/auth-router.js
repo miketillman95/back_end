@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// const { checkUsernameExists, validateRoleName } = require('./auth-middleware');
+const { checkAuthPayload, checkUsernameExists } = require('./auth-middleware');
 const { JWT_SECRET } = require("../auth/secrets/index"); // use this secret!
 
 // Bring in Users model
@@ -14,7 +14,7 @@ const jwt = require('jsonwebtoken')
 
 
 // register endpoint
-router.post("/register", (req,res) => {
+router.post("/register", checkAuthPayload, (req,res, next) => {
 
   let user = req.body;
 
@@ -28,12 +28,12 @@ router.post("/register", (req,res) => {
     .then(saved => {
       res.status(201).json({ message: `Welcome to your recipes, ${saved.username}!`})
     })
-    .catch(e =>{ console.log(e)})
+    .catch(next)
 })
 
 
 // login endpoint
-router.post('/login', (req, res, next) => {
+router.post('/login', checkAuthPayload, checkUsernameExists, (req, res, next) => {
   let { username, password } = req.body;
 
   Users.findBy({ username })
@@ -46,7 +46,7 @@ router.post('/login', (req, res, next) => {
         })
       }
       else{
-        next ({ status: 401, message: "invalid credentials"})
+        next ({status: 401, message: "invalid credentials"})
       }
     }) 
     .catch(next)
