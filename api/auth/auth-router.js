@@ -26,7 +26,7 @@ router.post("/register", (req,res) => {
 
   Users.add(user)
     .then(saved => {
-      res.status(201).json({ message: `Welcome back, ${saved.username}`})
+      res.status(201).json({ message: `Welcome to your recipes, ${saved.username}!`})
     })
     .catch(e =>{ console.log(e)})
 })
@@ -41,7 +41,7 @@ router.post('/login', (req, res, next) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = makeToken(user)
         res.status(200).json({
-          message: `${user.username} is back!`,
+          message: `Welcome back, ${user.username}!`,
           token
         })
       }
