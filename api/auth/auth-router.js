@@ -1,6 +1,6 @@
 const router = require("express").Router();
 // const { checkUsernameExists, validateRoleName } = require('./auth-middleware');
-// const { JWT_SECRET } = require("../auth/secrets"); // use this secret!
+const { JWT_SECRET } = require("../auth/secrets/index"); // use this secret!
 
 // Bring in Users model
 const Users = require('../users/users-model')
@@ -11,6 +11,9 @@ const bcrypt = require('bcryptjs')
 // Bring in json web token
 const jwt = require('jsonwebtoken')
 
+
+
+// register endpoint
 router.post("/register", (req,res) => {
 
   let user = req.body;
@@ -29,9 +32,41 @@ router.post("/register", (req,res) => {
 })
 
 
+// login endpoint
+router.post('/login', (req, res, next) => {
+  let { username, password } = req.body;
 
+  Users.findBy({ username })
+    .then(([user])=> {
+      if (user && bcrypt.compareSync(password, user.password)) {
+        const token = makeToken(user)
+        res.status(200).json({
+          message: `${user.username} is back!`,
+          token
+        })
+      }
+      else{
+        next ({ status: 401, message: "invalid credentials"})
+      }
+    }) 
+    .catch(next)
+})
 
+// make token
+function makeToken(user){
+  //give payload as an object
+  const payload ={
+    subject: user.user_id,
+    username: user.username,
+    role_name: user.role_name
+  }
 
+  const options = {
+    expiresIn: "1d"
+  }
+
+  return jwt.sign(payload, JWT_SECRET, options )
+}
 
 
 module.exports = router;
