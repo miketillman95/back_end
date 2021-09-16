@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { checkUsernameExists, validateRoleName } = require('./auth-middleware');
-const { JWT_SECRET } = require("../auth/secrets"); // use this secret!
+// const { checkUsernameExists, validateRoleName } = require('./auth-middleware');
+// const { JWT_SECRET } = require("../auth/secrets"); // use this secret!
 
 // Bring in Users model
 const Users = require('../users/users-model')
@@ -25,7 +25,7 @@ router.post("/register", (req,res) => {
     .then(saved => {
       res.status(201).json({ message: `Welcome back, ${saved.username}`})
     })
-    .catch(next)
+    .catch(e =>{ console.log(e)})
 })
 
 
