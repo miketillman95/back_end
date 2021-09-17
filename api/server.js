@@ -3,6 +3,8 @@ const cors = require("cors")
 const helmet = require("helmet")
 require("dotenv").config()
 
+const mockRouter = require("./mock/mock")
+
 const authRouter = require('./auth/auth-router')
 // const recipesRouter = require('./recipes/recipes-router')
 
@@ -12,6 +14,7 @@ server.use(express.json())
 server.use(helmet())
 server.use(cors())
 server.use('/api/auth', authRouter)
+server.use("/api/mock/auth", mockRouter)
 // server.use('/api/recipes', recipesRouter);
 
 server.get("/",(req, res) =>{
