@@ -1,5 +1,5 @@
 const Recipes = require('./recipes-model')
-const router = require('express')
+const router = require('express').Router()
 
 router.get('/', (req, res) => {
     Recipes.find(req.query)
@@ -88,6 +88,5 @@ router.put('/:id', (req, res) => {
     })
 }) // returns item object
 
-modules.exports = router
-
+module.exports = router
 

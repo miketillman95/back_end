@@ -3,6 +3,8 @@ const cors = require("cors")
 const helmet = require("helmet")
 require("dotenv").config()
 
+const mockRouter = require("./mock/mock")
+
 const authRouter = require('./auth/auth-router')
 const recipesRouter = require('./recipes/recipes-router')
 

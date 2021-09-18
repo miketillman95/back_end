@@ -13,17 +13,17 @@ function findBy(filter){
 		.where(filter)
 }
 
-function findById(id){
-	console.log("in the model findById", id)
+function findById(user_id){
+	console.log("in the model findById", user_id)
 	return db("users")
 		.select("*")
-		.where({ id })
+		.where({ user_id })
 		.first()
 }
 
 async function add(user){
 	console.log("in the model add", user)
-	const [id] = await db("users").insert(user).returning("id")
+	const [id] = await db("users").insert(user, "user_id")
 	console.log(id)
 	return findById(id);
 }
