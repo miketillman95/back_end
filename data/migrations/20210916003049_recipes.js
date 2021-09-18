@@ -25,7 +25,7 @@ exports.up = function(knex) {
     tbl.string("ingredient_name", 128)
   })
   .createTable("recipe_ingredients", tbl => {
-    tbl.increments("recipe_ingredients_id")
+    tbl.increments("recipe_ingredient_id")
     tbl.integer("instruction_id")
       .unsigned()// can't be a negative number
       .notNullable()
