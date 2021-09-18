@@ -23,7 +23,7 @@ function findById(user_id){
 
 async function add(user){
 	console.log("in the model add", user)
-	const [id] = await db("users").insert(user).returning("id")
+	const [id] = await db("users").insert(user, "user_id")
 	console.log(id)
 	return findById(id);
 }

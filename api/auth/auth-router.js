@@ -25,8 +25,10 @@ router.post("/register", checkAuthPayload, (req,res, next) => {
   user.password = hash
 
   Users.add(user)
+
     .then(saved => {
       res.status(201).json({ message: `Welcome to your recipes, ${saved.username}!`})
+      console.log(user)
     })
     .catch(next)
 })
