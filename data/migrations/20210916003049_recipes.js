@@ -29,8 +29,8 @@ exports.up = function(knex) {
     tbl.integer("instruction_id")
       .unsigned()// can't be a negative number
       .notNullable()
-      .references("step_id")// what column is this referrring to?
-      .inTable("steps")
+      .references("instruction_id")// what column is this referrring to?
+      .inTable("instructions")
       .onDelete("CASCADE")// referential integrity  
     tbl.integer("ingredient_id")
       .unsigned()// can't be a negative number
