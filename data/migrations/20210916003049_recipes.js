@@ -25,12 +25,12 @@ exports.up = function(knex) {
     tbl.string("ingredient_name", 128)
   })
   .createTable("recipe_ingredients", tbl => {
-    tbl.increments("recipe_ingredients_id")
+    tbl.increments("recipe_ingredient_id")
     tbl.integer("instruction_id")
       .unsigned()// can't be a negative number
       .notNullable()
-      .references("step_id")// what column is this referrring to?
-      .inTable("steps")
+      .references("instruction_id")// what column is this referrring to?
+      .inTable("instructions")
       .onDelete("CASCADE")// referential integrity  
     tbl.integer("ingredient_id")
       .unsigned()// can't be a negative number

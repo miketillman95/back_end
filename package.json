@@ -30,7 +30,16 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent"
+    "migrateh": "heroku run knex migrate:latest -a secret-recipes-bw",
+    "rollbackh": "heroku run knex migrate:rollback -a secret-recipes-bw",
+    "databaseh": "heroku pg:psql -a secret-recipes-bw",
+    "seedh": "heroku run knex seed:run -a secret-recipes-bw",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
+    "deploy": "git push heroku main"
+  },
+  "engines": {
+    "node": "14.17.1",
+    "npm": "6.14.13"
   },
   "keywords": [],
   "author": "",

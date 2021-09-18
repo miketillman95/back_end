@@ -1,5 +1,13 @@
 // Update with your config settings.
 
+const pg = require('pg')
+
+const dotenv = require('dotenv').config()
+
+if (process.env.DATABASE_URL) {
+  pg.defaults.ssl = { rejectUnauthorized: false }
+}
+
 // check this once deployed to heroku 
 console.log(">>>>>>>>>>>>>>> process.env.DATABASE_URL: ", process.env.DATABASE_URL);
 const sharedConfig = {
@@ -10,18 +18,8 @@ const sharedConfig = {
 
 module.exports = {
   development: {
-      client: 'sqlite3',
-  migrations: { directory: './data/migrations' },
-  seeds: { directory: './data/seeds' },
-  connection: {
-    filename: "./data/development.db3"
-  },
-  useNullAsDefault: true,
-  pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foreign_keys=ON", done);
-      },
-    },
+    ...sharedConfig,
+    connection: process.env.DEV_DATABASE_URL,
 
   },
   testing: {
@@ -30,12 +28,7 @@ module.exports = {
   },
   production: {
     ...sharedConfig,
-    connection: {
-          connectionString: process.env.DATABASE_URL,
-          ssl: {
-            rejectUnauthorized: false,
-          },
-     },
-     pool: { min: 2, max: 10 },
+    connection: process.env.DATABASE_URL,
+    pool: { min: 2, max: 10 },
   },
 }
