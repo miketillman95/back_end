@@ -5,7 +5,7 @@ const add = async(newUser)=> {
     return findByRecipesId(id)
 }
 
-const findUsers = () => {
+const find = () => {
     return db('recipes')
 }
 
@@ -29,6 +29,7 @@ const update = (id, changes) => {
 module.exports = {
     add,
     findRecipesById,
-    findUsers,
-    update
+    find,
+    update, 
+    remove
 }
