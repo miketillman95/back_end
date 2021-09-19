@@ -6,7 +6,7 @@ require("dotenv").config()
 const mockRouter = require("./mock/mock")
 
 const authRouter = require('./auth/auth-router')
-// const recipesRouter = require('./recipes/recipes-router')
+const recipesRouter = require('./recipes/recipes-router')
 
 const server = express()
 
@@ -14,8 +14,7 @@ server.use(express.json())
 server.use(helmet())
 server.use(cors())
 server.use('/api/auth', authRouter)
-server.use("/api/mock/auth", mockRouter)
-// server.use('/api/recipes', recipesRouter);
+server.use('/api/recipes', recipesRouter);
 
 server.get("/",(req, res) =>{
     res.json({yodaSays:"Server up it is"})

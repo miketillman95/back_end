@@ -3,7 +3,13 @@ exports.up = function(knex) {
   return knex.schema
   .createTable("recipes", tbl =>{
     tbl.increments("recipe_id")
-    tbl.string("title", 128).notNullable().unique()
+    tbl.integer('user_id')
+    .unsigned()// can't be a negative number
+    .notNullable()
+    .references("user_id")// what column is this referrring to? user_id in users table
+    .inTable("users")
+    .onDelete("RESTRICT")
+    tbl.string("recipe_name", 128).notNullable().unique()
     tbl.string("source", 128).notNullable().unique()
     tbl.string("category", 128).notNullable().unique()
   })
@@ -16,7 +22,7 @@ exports.up = function(knex) {
     tbl.integer("recipe_id")
     .unsigned()// can't be a negative number
     .notNullable()
-    .references("recipe_id")// what column is this referrring to?
+    .references("recipe_id")// what column is this referrring to? recipes_d in recipes tabnle
     .inTable("recipes")
     .onDelete("RESTRICT")// referential integrity    
   })
@@ -29,7 +35,7 @@ exports.up = function(knex) {
     tbl.integer("instruction_id")
       .unsigned()// can't be a negative number
       .notNullable()
-      .references("instruction_id")// what column is this referrring to?
+      .references("instructions_id")// what column is this referrring to? instructions_id in instructions table
       .inTable("instructions")
       .onDelete("CASCADE")// referential integrity  
     tbl.integer("ingredient_id")
@@ -38,7 +44,6 @@ exports.up = function(knex) {
       .references("ingredient_id")// what column is this referrring to?
       .inTable("ingredients")
       .onDelete("CASCADE")// referential integrity  
-    tbl.decimal("quantity")
        
   })
 };

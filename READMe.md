@@ -42,6 +42,13 @@ heroku run --app <app_name>
     http://localhost:3300 in development
     http://localhost:3300/api/auth/register 
     http://localhost:3300/api/auth/login
+    http://localhost:3300/api/recipes/
+    http://localhost:3300/api/recipes/:id
+    http://localhost:3300/api/recipes/:id
+
+
+
+
 
 
 ### Current Group Endpoints (heroku):
