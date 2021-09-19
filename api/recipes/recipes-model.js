@@ -9,9 +9,9 @@ const find = () => {
     return db('recipes')
 }
 
-const findById = (recipes_id) =>{
+const findById = (recipe_id) =>{
     return db('recipes')
-    .where({recipes_id})
+    .where({recipe_id})
     .first()
 }
 
