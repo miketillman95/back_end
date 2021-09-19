@@ -35,7 +35,7 @@ exports.up = function(knex) {
     tbl.integer("instruction_id")
       .unsigned()// can't be a negative number
       .notNullable()
-      .references("instructions_id")// what column is this referrring to? instructions_id in instructions table
+      .references("instruction_id")// what column is this referrring to? instructions_id in instructions table
       .inTable("instructions")
       .onDelete("CASCADE")// referential integrity  
     tbl.integer("ingredient_id")
