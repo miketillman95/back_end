@@ -1,34 +1,34 @@
 const db = require('../../data/dbConfig')
 
 const add = async(newUser)=> {
-    const [id] = await db('recipes').insert(newUser)
-    return findByRecipesId(id)
+    const [id] = await db('recipes').insert(newUser).returning('recipe_id')
+    return findById(id)
 }
 
 const find = () => {
     return db('recipes')
 }
 
-const findRecipesById = (id) =>{
+const findById = (recipes_id) =>{
     return db('recipes')
-    .where({id})
+    .where({recipes_id})
     .first()
 }
 
-const remove = (id) =>{
+const remove = (recipe_id) =>{
     return db('recipes')
-    .where({id})
+    .where({recipe_id})
     .del()
 }
 
-const update = (id, changes) => {
+const update = (recipe_id, changes) => {
     return db('recipes')
-    .where({id})
+    .where({recipe_id})
     .update(changes, '*')
 }
 module.exports = {
     add,
-    findRecipesById,
+    findById,
     find,
     update, 
     remove
