@@ -37,7 +37,7 @@
     "databaseh": "heroku pg:psql -a secret-recipes-bw",
     "seedh": "heroku run knex seed:run -a secret-recipes-bw",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku master"
   },
   "engines": {
     "node": "14.17.1",
