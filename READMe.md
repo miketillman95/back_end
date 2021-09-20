@@ -52,7 +52,10 @@ heroku run --app <app_name>
 
 
 ### Current Group Endpoints (heroku):
-    Coming Soon
+    https://secret-recipes-bw.herokuapp.com/api/auth/register
+    https://secret-recipes-bw.herokuapp.com/api/auth/login
+    https://secret-recipes-bw.herokuapp.com/api/recipes/
+    https://secret-recipes-bw.herokuapp.com/api/recipes/:id
 
 MY-LIST Endpoints
 
