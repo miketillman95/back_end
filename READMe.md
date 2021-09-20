@@ -72,13 +72,19 @@ MY-LIST Endpoints
 
 
 ### Data Table Structures: 
+(this is how the object should look when you make the request
 User Object
 {
-  id: integer
+  user_id: integer
   username: string
   password: string 
   email: string
 }
 Recipe Object
-(in development)
-
+{
+  recipe_id: integer
+  user_id: integer
+  recipe_name: string
+  source: string 
+  category: string
+}
