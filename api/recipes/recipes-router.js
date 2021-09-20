@@ -1,6 +1,6 @@
 const Recipes = require('./recipes-model')
 const router = require('express').Router()
-
+// works
 router.get('/', (req, res) => {
     Recipes.find(req.query)
     .then(recipes => {
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 }) // return an array of all items
 
-
+//works
 router.get('/:id', (req, res) => {
     Recipes.findById(req.params.id)
     .then(recipes => {
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
   });
 }) // return the added item object
 
-
+// works
 router.delete('/:id', (req, res) => {
     Recipes.remove(req.params.id)
     .then(count => {
@@ -69,13 +69,14 @@ router.delete('/:id', (req, res) => {
   });
 })
 
+// works
 router.put('/:id', (req, res) => {
    const changes = req.body
     Recipes.update(req.params.id, changes)
     .then(recipes => {
         if(recipes) {
             res.status(200).json({
-                message: 'Recipe has been added'
+                message: 'Recipe has been updated'
             })
         } else {
             res.status(404).json({
