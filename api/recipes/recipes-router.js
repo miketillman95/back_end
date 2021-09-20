@@ -37,9 +37,11 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Recipes.add(req.body)
     .then(recipes => {
+        console.log("------------",req.body)
         res.status(201).json(recipes)
     })
     .catch(error => {
+      console.log("------------",req.body)
         res.status(500).json({
         message: 'Error adding the recipe',
         });
@@ -51,7 +53,7 @@ router.delete('/:id', (req, res) => {
     Recipes.remove(req.params.id)
     .then(count => {
         if (count > 0) {
-            res.status.json({
+            res.status(200).json({
                 message: 'Recipe has been removed'
             }) 
         } else {

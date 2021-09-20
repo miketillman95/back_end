@@ -24,7 +24,7 @@ exports.up = function(knex) {
     .notNullable()
     .references("recipe_id")// what column is this referrring to? recipes_d in recipes tabnle
     .inTable("recipes")
-    .onDelete("RESTRICT")// referential integrity    
+    .onDelete("CASCADE")// referential integrity    
   })
   .createTable("ingredients", tbl => {
     tbl.increments("ingredient_id")
