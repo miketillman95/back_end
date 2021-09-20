@@ -87,4 +87,6 @@ Recipe Object
   recipe_name: string
   source: string 
   category: string
+  instructions: string
+  ingredients: string
 }
