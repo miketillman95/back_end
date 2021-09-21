@@ -30,6 +30,7 @@ router.post("/register", checkAuthPayload, (req,res, next) => {
       res.status(201).json({ message: `Welcome to your recipes, ${saved.username}!`})
       console.log(user)
     })
+   
     .catch(next)
 })
 
