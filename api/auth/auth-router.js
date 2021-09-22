@@ -32,7 +32,8 @@ router.post("/register", checkAuthPayload, (req,res, next) => {
     })
    
     .catch(next)
-})
+}) 
+console.log(bcrypt.hashSync("password", 8))
 
 
 // login endpoint

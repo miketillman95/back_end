@@ -11,5 +11,4 @@ exports.seed = function(knex) {
    
 };
 
-// cant seed running knex:seed
-// cant run seeding to heroku at the moment
+
