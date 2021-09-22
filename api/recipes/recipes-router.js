@@ -37,11 +37,11 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Recipes.add(req.body)
     .then(recipes => {
-        console.log("------------",req.body)
+        console.log("success",req.body)
         res.status(201).json(recipes)
     })
     .catch(error => {
-      console.log("------------",req.body)
+      console.log("failure", error)
         res.status(500).json({
         message: 'Error adding the recipe',
         });

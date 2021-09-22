@@ -1,9 +1,9 @@
 const db = require('../../data/dbConfig')
 
 // fix add model, getting 500 error
-const add = async(newUser)=> {
+const add = async(newRecipe)=> {
     const [id] = await db('recipes')
-    .insert(newUser).returning('recipe_id')
+    .insert(newRecipe).returning('recipe_id')
     return findById(id)
 }
 
@@ -17,7 +17,7 @@ const findById = (recipe_id) =>{
     .first()
 }
 
-//model works but gives 500 error
+
 const remove = (recipe_id) =>{
     return db('recipes')
     .where({recipe_id})

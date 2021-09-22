@@ -9,9 +9,9 @@ exports.up = function(knex) {
     .references("user_id")// what column is this referrring to? user_id in users table
     .inTable("users")
     .onDelete("CASCADE")
-    tbl.string("recipe_name", 128).notNullable().unique()
-    tbl.string("source", 128).notNullable().unique()
-    tbl.string("category", 128).notNullable().unique()
+    tbl.string("recipe_name", 128).notNullable()
+    tbl.string("source", 128).notNullable()
+    tbl.string("category", 128).notNullable()
     tbl.string("instructions", 128).notNullable()
     tbl.string("ingredients", 128).notNullable()
   })
