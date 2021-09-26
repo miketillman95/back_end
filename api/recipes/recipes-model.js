@@ -1,12 +1,12 @@
 const db = require('../../data/dbConfig')
 
 // fix add model, getting 500 error
-const add = async(newRecipe)=> {
-    const [id] = await db('recipes')
-    .insert(newRecipe).returning('recipe_id')
-    return findById(id)
-}
 
+function add(recipe){
+  return db('recipes')
+  .insert(recipe, "user_id");
+}
+ 
 const find = () => {
     return db('recipes')
 }

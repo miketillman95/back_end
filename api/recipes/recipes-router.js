@@ -36,9 +36,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Recipes.add(req.body)
-    .then(recipes => {
+    .then(recipe => {
         console.log("success",req.body)
-        res.status(201).json(recipes)
+        res.status(201).json(recipe)
     })
     .catch(error => {
       console.log("failure", error)
