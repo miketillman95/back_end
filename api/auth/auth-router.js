@@ -31,7 +31,10 @@ router.post("/register", checkAuthPayload, (req,res, next) => {
       console.log(user)
     })
    
-    .catch(next)
+    .catch(err => {
+      res.status(500).json({message: "server error"})
+      console.log(err)
+    })
 }) 
 console.log(bcrypt.hashSync("password", 8))
 
