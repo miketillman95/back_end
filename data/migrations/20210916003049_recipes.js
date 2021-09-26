@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema
   .createTable("recipes", tbl =>{
-    tbl.increments()
+    tbl.increments("id")
     tbl.integer('user_id')
     .unsigned()// can't be a negative number
     .notNullable()
@@ -17,7 +17,7 @@ exports.up = function(knex) {
     tbl.string("ingredients", 128).notNullable()
   })
   .createTable("users_recipes", tbl => {
-    tbl.increments();
+    tbl.increments("id");
     tbl.integer("user_id")
         .unsigned()
         .references("id")

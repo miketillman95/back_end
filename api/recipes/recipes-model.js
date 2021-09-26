@@ -11,22 +11,22 @@ const find = () => {
     return db('recipes')
 }
 
-const findById = (recipe_id) =>{
+const findById = (id) =>{
     return db('recipes')
-    .where({recipe_id})
+    .where({id})
     .first()
 }
 
 
-const remove = (recipe_id) =>{
+const remove = (id) =>{
     return db('recipes')
-    .where({recipe_id})
+    .where({id})
     .del()
 }
 
-const update = (recipe_id, changes) => {
+const update = (id, changes) => {
     return db('recipes')
-    .where({recipe_id})
+    .where({id})
     .update(changes, '*')
 }
 module.exports = {
