@@ -75,7 +75,7 @@ MY-LIST Endpoints
 (this is how the object should look when you make the request
 User Object
 {
-  user_id: integer
+  id: integer
   username: string
   password: string 
   email: string
