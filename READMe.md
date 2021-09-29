@@ -68,7 +68,8 @@ MY-LIST Endpoints
 
 ### RECIPES:
 
-    /api/recipes/ (in development)
+    /api/recipes/:id
+    /api/recipes/
 
 
 ### Data Table Structures: 
