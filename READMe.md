@@ -1,5 +1,5 @@
 # Back end created for users to store recipes!
-api created to handle user authorization and request to store, retrieve, delete, and update recipes.
+api created to handle user creation, authorization and request to store, retrieve, delete, and update recipes.
 
 ## Dependencies
   Knex
